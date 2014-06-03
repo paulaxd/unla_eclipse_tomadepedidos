@@ -15,7 +15,7 @@ import com.db4o.ObjectContainer;
  * Clase con metodos genericos de la DB.
  * @author m_pau_000
  */
-public class DAOGeneric {
+public class DAOManager {
     
     /***
      * Borra el archivo de la DB

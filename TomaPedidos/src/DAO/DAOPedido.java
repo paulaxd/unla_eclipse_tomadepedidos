@@ -6,11 +6,15 @@
 
 package DAO;
 
+import Negocio.Articulo;
+import Negocio.ItemPedido;
 import Negocio.Pedido;
 import Utiles.Utiles;
+
 import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -45,7 +49,7 @@ public class DAOPedido {
         //Devuelve TRUE en caso de exito y FALSE en caso contrario
         return flag;
     }
-
+    
     public List<Pedido> GetAll(){
        List<Pedido> lstPedido = new ArrayList();
        try{

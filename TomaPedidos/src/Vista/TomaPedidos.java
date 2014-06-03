@@ -7,14 +7,14 @@
 package Vista;
 
 import DAO.DAOArticulo;
-import DAO.DAOArticuloPedido;
+import DAO.DAOItemPedido;
 import DAO.DAOCliente;
 import DAO.DAOCondicionPago;
 import DAO.DAOEstado;
-import DAO.DAOGeneric;
+import DAO.DAOManager;
 import DAO.DAOPedido;
 import Negocio.Articulo;
-import Negocio.ArticuloPedido;
+import Negocio.ItemPedido;
 import Negocio.Cliente;
 import Negocio.CondicionPago;
 import Negocio.Estado;
@@ -32,10 +32,10 @@ public class TomaPedidos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//BORRA LA DB PARA NO DUPLICAR
-        DAOGeneric.BorrarDB();
+        //BORRA LA DB PARA NO DUPLICAR
+        DAOManager.BorrarDB();
         //ABRE LA DB
-        ObjectContainer db = DAOGeneric.AbrirDB();
+        ObjectContainer db = DAOManager.AbrirDB();
         
         DAOArticulo daoArticulo = new DAOArticulo(db);
         List<Articulo> lst = daoArticulo.ImportarArticulos();
@@ -87,18 +87,18 @@ public class TomaPedidos {
             System.out.println(p.toString());
         }
         
-        DAOArticuloPedido daoArticuloPedido = new DAOArticuloPedido(db);
-        List<ArticuloPedido> lstArticuloPedido = daoArticuloPedido.ImportarArticuloPedido();
-        daoArticuloPedido.AgregarArticuloPedido(lstArticuloPedido);
+        DAOItemPedido daoItemPedido = new DAOItemPedido(db);
+        List<ItemPedido> lstArticuloPedido = daoItemPedido.ImportarItemPedido();
+        daoItemPedido.AgregarItemPedido(lstArticuloPedido);
         
-        System.out.println("\n********     ARTICULOS POR PEDIDO     *********\n");
+        System.out.println("\n********     ITEMS POR PEDIDO     *********\n");
         
-        for(ArticuloPedido ap : daoArticuloPedido.GetAll()){
+        for(ItemPedido ap : daoItemPedido.GetAll()){
             System.out.println(ap.toString());
         }
         
         //CIERRA LA DB
-        DAOGeneric.CerrarDB(db);
+        DAOManager.CerrarDB(db);
         
     }
     

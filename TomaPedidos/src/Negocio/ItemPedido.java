@@ -10,14 +10,14 @@ package Negocio;
  *
  * @author maurogarcia
  */
-public class ArticuloPedido {
+public class ItemPedido {
     
     private Pedido pedido;
     private Articulo articulo;
     private String direccionEnvio;
     private int cantidad;
 
-    public ArticuloPedido(Pedido pedido, Articulo articulo, String direccionEnvio, int cantidad) {
+    public ItemPedido(Pedido pedido, Articulo articulo, String direccionEnvio, int cantidad) {
         this.pedido = pedido;
         this.articulo = articulo;
         this.direccionEnvio = direccionEnvio;
@@ -58,7 +58,7 @@ public class ArticuloPedido {
 
     @Override
     public String toString() {
-        return "ArticuloPedido{" + "pedido=" + pedido + ", articulo=" + articulo + ", direccionEnvio=" + direccionEnvio + ", cantidad=" + cantidad + '}';
+        return "ItemPedido{" + "pedido=" + pedido + ", articulo=" + articulo + ", direccionEnvio=" + direccionEnvio + ", cantidad=" + cantidad + '}';
     }
     
     

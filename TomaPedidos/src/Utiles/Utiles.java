@@ -28,7 +28,7 @@ public final class Utiles {
     public static final String IMPORT_FILE_PATH_CLIENTES = System.getProperty("user.dir") + "/src/Data/Clientes.csv";
     public static final String IMPORT_FILE_PATH_PEDIDOS = System.getProperty("user.dir") + "/src/Data/Pedidos.csv";
     public static final String IMPORT_FILE_PATH_ESTADOS = System.getProperty("user.dir") + "/src/Data/Estados.csv";
-    public static final String IMPORT_FILE_PATH_ARTICULOPEDIDO = System.getProperty("user.dir") + "/src/Data/ArticuloPedido.csv";
+    public static final String IMPORT_FILE_PATH_ITEMPEDIDO = System.getProperty("user.dir") + "/src/Data/ItemPedido.csv";
     //Ruta del log de errores
     public static final String ERRORLOG_FILE_PATH = System.getProperty("user.dir") + "/src/Data/ErrorLog.txt";
     //Caracter separador del CSV

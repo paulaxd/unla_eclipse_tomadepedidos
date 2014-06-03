@@ -6,7 +6,9 @@
 
 package Negocio;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -30,7 +32,7 @@ public class Pedido {
     public Pedido(int codigo){
         this.codigo = codigo;
     }
-
+    
     public int getCodigo() {
         return codigo;
     }
@@ -62,7 +64,7 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
+    
     @Override
     public String toString() {
         return "Pedido{" + "codigo=" + codigo + ", estado=" + estado + ", fecha=" + fecha + ", cliente=" + cliente;
