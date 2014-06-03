@@ -21,3 +21,87 @@ Metodo: ImportarArticuloPedido - Clase: DAOArticuloPedido - Mensaje: Error al le
 30-may-2014 12:27:28 - Metodo: GetByCodigo - Clase: DAOCondicionPago - Mensaje: null
 30-may-2014 12:27:28 - Metodo: GetByCodigo - Clase: DAOCondicionPago - Mensaje: null
 30-may-2014 12:27:28 - Metodo: GetByCodigo - Clase: DAOCondicionPago - Mensaje: null
+03/06/2014 18:44:31 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOCondicionPago - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCondicionPago - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCondicionPago - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCondicionPago - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOEstado - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOCliente - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetByCodigo - Clase: DAOArticulo - Mensaje: null
+03/06/2014 18:44:31 - Metodo: GetAll - Clase: DAOItemPedido - Mensaje: null
+03/06/2014 18:44:31 - Metodo: Commit - Clase: DAOManager - Mensaje: Error inesperado: null
+03/06/2014 18:44:31 - Metodo: CerrarDB - Clase: DAOManager - Mensaje: Error inesperadonull
+03/06/2014 18:51:01 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:51:01 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@32e6e9c3
+03/06/2014 18:51:01 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@2669b199
+03/06/2014 18:51:37 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:51:37 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@3a079870
+03/06/2014 18:51:37 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@3c153a1
+03/06/2014 18:51:57 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:51:57 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@f2f2cc1
+03/06/2014 18:51:57 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@6156496
+03/06/2014 18:52:52 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:53:08 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@3b2cf7ab
+03/06/2014 18:54:20 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:54:20 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@32e6e9c3
+03/06/2014 18:54:20 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@2669b199
+03/06/2014 18:55:06 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:55:06 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@32e6e9c3
+03/06/2014 18:55:06 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@2669b199
+03/06/2014 18:55:26 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
+03/06/2014 18:55:27 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@32e6e9c3
+03/06/2014 18:55:27 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@5056dfcb

@@ -21,7 +21,7 @@ import java.util.List;
  */
 public final class Utiles {
     //Ruta del archivo de la DB
-    public static final String DB_FILE_PATH = System.getProperty("user.dir") + "/src/Data/TomaPedidosDB";
+    public static final String DB_FILE_PATH = System.getProperty("user.dir") + "/ssrc/Data/TomaPedidosDB";
     //Ruta del archivo de importación
     public static final String IMPORT_FILE_PATH_ARTICULOS = System.getProperty("user.dir") + "/src/Data/Articulos.csv";
     public static final String IMPORT_FILE_PATH_CONDICIONESPAGO = System.getProperty("user.dir") + "/src/Data/CondicionesPago.csv";
