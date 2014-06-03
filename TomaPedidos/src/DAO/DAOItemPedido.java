@@ -8,9 +8,12 @@ package DAO;
 
 import Negocio.ItemPedido;
 import Utiles.Utiles;
+
 import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.ext.Db4oException;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -30,20 +33,23 @@ public class DAOItemPedido {
         this.db = db;
     }
     
-    public boolean AgregarItemPedido(ItemPedido itemPedido){
+    public boolean AgregarItemPedido(ItemPedido itemPedido) throws Exception{
         boolean flag = true;
         try{
             //Graba el ArticuloPedido recibido por parametro
             db.store(itemPedido);
             //Persistir los cambios
             db.commit();
-        }
-        catch(Exception ex){
+        }catch(Db4oException ex){
+       		DAOErrorLog.AgregarErrorLog("AgregarItemPedido", "DAOItemPedido", "Error de db4o: " + ex.getMessage());
+       		throw new Db4oException("Error de db4o al agregar un item de pedido", ex);
+        }catch(Exception ex){
             //Volver al estado anterior
             db.rollback();
             flag = false;
             //Graba log del error
             DAOErrorLog.AgregarErrorLog("AgregarArticuloPedido", "DAOArticuloPedido", ex.getMessage());
+       		throw new Exception("Error inesperado al agregar un item de pedido", ex);
         }
         //Devuelve TRUE en caso de exito y FALSE en caso contrario
         return flag;
@@ -58,16 +64,18 @@ public class DAOItemPedido {
             for(ItemPedido a : result){
             	lstItemPedido.add(a);
             }
-       }
-       catch(Exception ex){
-           //Graba un log de errores en la DB
-           DAOErrorLog.AgregarErrorLog("GetAll", "DAOItemPedido", ex.getMessage());
+       }catch(Db4oException ex){
+      		DAOErrorLog.AgregarErrorLog("GetAll", "DAOItemPedido", "Error de db4o: " + ex.getMessage());
+      		throw new Db4oException("Error de db4o al traer todos los items de pedidos", ex);
+       }catch(Exception ex){
+           	//Graba un log de errores en la DB
+           	DAOErrorLog.AgregarErrorLog("GetAll", "DAOItemPedido", ex.getMessage());
        }
        //Devuelvo la lista cargada (o vacía en caso de excepcion)
        return lstItemPedido;
     }
     
-    public boolean AgregarItemPedido(List<ItemPedido> lstItemPedido){
+    public boolean AgregarItemPedido(List<ItemPedido> lstItemPedido) throws Exception{
         boolean flag = true;
         DAOPedido daoPedido = new DAOPedido(this.db);
         try{
@@ -80,12 +88,12 @@ public class DAOItemPedido {
         }
         catch(Exception ex){
             flag = false;
+            throw new Exception(ex.getMessage(),ex);
         }
-        
         return flag;
     }
     
-    public List<ItemPedido> ImportarItemPedido(){
+    public List<ItemPedido> ImportarItemPedido() throws Exception{
 	        
     	List<ItemPedido> lstItemPedido = new ArrayList();
         DAOArticulo daoArticulo = new DAOArticulo(this.db);
@@ -106,26 +114,26 @@ public class DAOItemPedido {
                                                   Integer.parseInt(condicion[3])));
 	 
 			}
-	 
-		} catch (FileNotFoundException e) {
+		}catch (FileNotFoundException e) {
 			error = "No se encontro el archivo: " + e.getStackTrace();
-		} catch (IOException e) {
+		}catch (IOException e) {
 			error = "Error al leer el archivo: " + e.getStackTrace();
-		}catch(Exception e){
+		}catch(Db4oException ex){
+            error = "Error de d44o al importar datos de itemPedido: " + ex.getStackTrace();
+        }catch(Exception e){
 	            error = "Error al leer el archivo: " + e.getStackTrace();
-	        }
-	        finally {
+	    }finally {
 			if (br != null) {
 				try {
 					br.close();
-				} catch (IOException e) {
+				}catch (IOException e) {
 					error = "Error al cerrar el archivo: " + e.getStackTrace().toString();
 				}
 			}
-	                
-	                if(error.trim() != ""){
-	                    DAOErrorLog.AgregarErrorLog("ImportarArticuloPedido", "DAOArticuloPedido", error);
-	                }
+	        if(error.trim() != ""){
+	             DAOErrorLog.AgregarErrorLog("ImportarArticuloPedido", "DAOArticuloPedido", error);
+	             throw new Exception(error);       
+	        }
 	                
 		}
         return lstItemPedido;

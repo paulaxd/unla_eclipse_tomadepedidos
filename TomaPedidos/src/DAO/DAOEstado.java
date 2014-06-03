@@ -8,9 +8,12 @@ package DAO;
 
 import Negocio.Estado;
 import Utiles.Utiles;
+
 import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.ext.Db4oException;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -37,8 +40,10 @@ public class DAOEstado {
             db.store(estado);
             //Persistir los cambios
             db.commit();
-        }
-        catch(Exception ex){
+        }catch(Db4oException ex){
+      		DAOErrorLog.AgregarErrorLog("AgregarEstado", "DAOEstado", "Error de db4o: " + ex.getMessage());
+      		throw new Db4oException("Error de db4o al agregar el estado", ex);
+        }catch(Exception ex){
             //Volver al estado anterior
             db.rollback();
             flag = false;
@@ -58,10 +63,12 @@ public class DAOEstado {
             for(Estado a : result){
                 lstEstado.add(a);
             }
-       }
-       catch(Exception ex){
-           //Graba un log de errores en la DB
-           DAOErrorLog.AgregarErrorLog("GetAll", "DAOEstado", ex.getMessage());
+       }catch(Db4oException ex){
+     		DAOErrorLog.AgregarErrorLog("GetAll", "DAOEstado", "Error de db4o: " + ex.getMessage());
+     		throw new Db4oException("Error de db4o al traer todos los estados", ex);
+       }catch(Exception ex){
+    	   	//Graba un log de errores en la DB
+    	   	DAOErrorLog.AgregarErrorLog("GetAll", "DAOEstado", ex.getMessage());
        }
        //Devuelvo la lista cargada (o vacía en caso de excepcion)
        return lstEstado;
@@ -74,15 +81,17 @@ public class DAOEstado {
             ObjectSet result = db.queryByExample(new Estado(codigo));
             Estado encontrado = (Estado)result.next();
             return encontrado;
-        }
-        catch(Exception ex){
-           //Graba un log de errores en la DB
-           DAOErrorLog.AgregarErrorLog("GetAll", "DAOEstado", ex.getMessage());
+        }catch(Db4oException ex){
+      		DAOErrorLog.AgregarErrorLog("GetByCodigo", "DAOEstado", "Error de db4o: " + ex.getMessage());
+      		throw new Db4oException("Error de db4o al traer estado por codigo", ex);
+        }catch(Exception ex){
+        	//Graba un log de errores en la DB
+        	DAOErrorLog.AgregarErrorLog("GetAll", "DAOEstado", ex.getMessage());
         }
         return null;
     }
     
-    public  boolean AgregarEstado(List<Estado> lstEstado){
+    public  boolean AgregarEstado(List<Estado> lstEstado) throws Exception{
         boolean flag = true;
         
         try{
@@ -95,16 +104,17 @@ public class DAOEstado {
         }
         catch(Exception ex){
             flag = false;
+            throw new Exception(ex.getMessage(),ex);
         }
         
         return flag;
     }
     
-    public  List<Estado> ImportarEstado(){
+    public  List<Estado> ImportarEstado() throws Exception{
         List<Estado> lstEstado = new ArrayList();
         
         BufferedReader br = null;
-	String line = "";
+        String line = "";
         String error = "";
         
         try {
@@ -118,27 +128,30 @@ public class DAOEstado {
  
 		}
  
-	} catch (FileNotFoundException e) {
-		error = "No se encontro el archivo: " + e.getStackTrace();
-	} catch (IOException e) {
-		error = "Error al leer el archivo: " + e.getStackTrace();
-	}catch(Exception e){
+        }catch (FileNotFoundException e) {
+        	error = "No se encontro el archivo: " + e.getStackTrace();
+        }catch (IOException e) {
+        	error = "Error al leer el archivo: " + e.getStackTrace();
+        }catch(Db4oException ex){
+        	error = "Error de d44o al importar datos de Estado: " + ex.getStackTrace();
+        }catch(Exception e){
             error = "Error al leer el archivo: " + e.getStackTrace();
         }
         finally {
 		if (br != null) {
 			try {
 				br.close();
-			} catch (IOException e) {
+			}catch (IOException e) {
 				error = "Error al cerrar el archivo: " + e.getStackTrace().toString();
 			}
 		}
                 
-                if(error.trim() != ""){
-                    DAOErrorLog.AgregarErrorLog("ImportarEstado", "DAOEstado", error);
-                }
+            if(error.trim() != ""){
+            	DAOErrorLog.AgregarErrorLog("ImportarEstado", "DAOEstado", error);
+            	throw new Exception(error);
+            }
                 
-	}
+        }
         return lstEstado;
     }
 }
