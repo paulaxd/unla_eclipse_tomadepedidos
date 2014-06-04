@@ -38,13 +38,11 @@ public class DAOPedido {
             //Graba el Pedido recibido por parametro
             db.store(pedido);
             //Persistir los cambios
-            db.commit();
         }catch(Db4oException ex){
         	DAOErrorLog.AgregarErrorLog("AgregarPedido", "DAOPedido", "Error de db4o: " + ex.getMessage());
         	throw new Db4oException("Error de db4o al Agregar Pedido", ex);
         }catch(Exception ex){
             //Volver al estado anterior
-            db.rollback();
             flag = false;
             //Graba log del error
             DAOErrorLog.AgregarErrorLog("AgregarPedido", "DAOPedido", ex.getMessage());

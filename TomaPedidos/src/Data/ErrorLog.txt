@@ -105,3 +105,6 @@ Metodo: ImportarArticuloPedido - Clase: DAOArticuloPedido - Mensaje: Error al le
 03/06/2014 18:55:26 - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: C:\Users\m_pau_000\git\Repositorio\TomaPedidos\ssrc\Data\TomaPedidosDB (The system cannot find the path specified)
 03/06/2014 18:55:27 - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@32e6e9c3
 03/06/2014 18:55:27 - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@5056dfcb
+Jun 3, 2014 9:19:58 PM - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: /Users/maurogarcia/git/unla_eclipse_tomadepedidos/TomaPedidos/ssrc/Data/TomaPedidosDB (No such file or directory)
+Jun 3, 2014 9:19:58 PM - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@6a2bcfcb
+Jun 3, 2014 9:19:58 PM - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@4de8b406

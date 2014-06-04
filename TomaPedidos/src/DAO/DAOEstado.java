@@ -39,13 +39,11 @@ public class DAOEstado {
             //Graba el Estado recibido por parametro
             db.store(estado);
             //Persistir los cambios
-            db.commit();
         }catch(Db4oException ex){
       		DAOErrorLog.AgregarErrorLog("AgregarEstado", "DAOEstado", "Error de db4o: " + ex.getMessage());
       		throw new Db4oException("Error de db4o al agregar el estado", ex);
         }catch(Exception ex){
             //Volver al estado anterior
-            db.rollback();
             flag = false;
             //Graba log del error
             DAOErrorLog.AgregarErrorLog("AgregarEstado", "DAOEstado", ex.getMessage());
