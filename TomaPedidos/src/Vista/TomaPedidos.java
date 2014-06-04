@@ -14,12 +14,16 @@ import DAO.DAOCondicionPago;
 import DAO.DAOEstado;
 import DAO.DAOManager;
 import DAO.DAOPedido;
+import DAO.DAOSincronizacion;
 import Negocio.Articulo;
 import Negocio.ItemPedido;
 import Negocio.Cliente;
 import Negocio.CondicionPago;
 import Negocio.Estado;
 import Negocio.Pedido;
+import Negocio.Sincronizacion;
+
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -30,8 +34,9 @@ public class TomaPedidos {
 
     /**
      * @param args the command line arguments
+     * @throws Exception 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
     	DAOManager daoManager = null;
     	try{
 	    	// Borra la DB para no duplicar.
@@ -99,6 +104,21 @@ public class TomaPedidos {
 	            System.out.println(ap.toString());
 	        }
 	        
+	        // Genero y grabo sincronizacion de prueba
+	        
+	        DAOSincronizacion daoSincronizacion = new DAOSincronizacion(daoManager.GetObjectContainter());
+	    	java.util.Calendar cal = java.util.Calendar.getInstance();
+	    	java.util.Date utilDate = cal.getTime();
+	    	java.sql.Date sqlDate = new Date(utilDate.getTime());
+	    	Sincronizacion sinc = new Sincronizacion(sqlDate, 123);
+	    	daoSincronizacion.AgregarSincronizacion(sinc);
+	        
+	        System.out.println("\n********     SINCRONIZACION     *********\n");
+	        
+	        for(Sincronizacion s : daoSincronizacion.GetAll()){
+	            System.out.println(s.toString());
+	        }
+	        
 	        // GUARDA LOS CAMBIOS
 	        daoManager.Commit();
 	        
@@ -108,13 +128,15 @@ public class TomaPedidos {
     	} catch(Exception ex){
     		DAOErrorLog.AgregarErrorLog("Main", "TomaPedidos", ex.getCause().getStackTrace().toString());
     		System.out.println(ex.getMessage());
-    		System.out.println("Para mas información: " + Utiles.Utiles.ERRORLOG_FILE_PATH);
+    		System.out.println("Para mas informaciï¿½n: " + Utiles.Utiles.ERRORLOG_FILE_PATH);
     		if(daoManager != null){
     			daoManager.Rollback();
     		}else{
     			DAOErrorLog.AgregarErrorLog("Main", "TomaPedidos", "Error al abrir/crear la DB: " + ex.getCause().getStackTrace().toString());
     		}
     	}
+    	
+    	
     }
     
 }

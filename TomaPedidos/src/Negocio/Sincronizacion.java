@@ -6,6 +6,7 @@
 
 package Negocio;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -40,7 +41,8 @@ public class Sincronizacion {
 
     @Override
     public String toString() {
-        return "Sincronizacion{" + "fechaUltimaSincronizacion=" + fechaUltimaSincronizacion + ", vendedorDni=" + vendedorDni + '}';
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return "Sincronizacion{" + "fechaUltimaSincronizacion=" + format.format(fechaUltimaSincronizacion) + ", vendedorDni=" + vendedorDni + '}';
     }
     
     

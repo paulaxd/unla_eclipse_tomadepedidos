@@ -108,3 +108,6 @@ Metodo: ImportarArticuloPedido - Clase: DAOArticuloPedido - Mensaje: Error al le
 Jun 3, 2014 9:19:58 PM - Metodo: AbrirDB - Clase: DAOManager - Mensaje: Error de db4o: /Users/maurogarcia/git/unla_eclipse_tomadepedidos/TomaPedidos/ssrc/Data/TomaPedidosDB (No such file or directory)
 Jun 3, 2014 9:19:58 PM - Metodo: Main - Clase: TomaPedidos - Mensaje: [Ljava.lang.StackTraceElement;@6a2bcfcb
 Jun 3, 2014 9:19:58 PM - Metodo: Main - Clase: TomaPedidos - Mensaje: Error al abrir/crear la DB: [Ljava.lang.StackTraceElement;@4de8b406
+Jun 3, 2014 11:49:08 PM - Metodo: ImportarCondicionPago - Clase: DAOCondicionPago - Mensaje: Error al leer el archivo: [Ljava.lang.StackTraceElement;@1f1c7bf6
+Jun 3, 2014 11:57:21 PM - Metodo: ImportarCondicionPago - Clase: DAOCondicionPago - Mensaje: Error al leer el archivo: [Ljava.lang.StackTraceElement;@1f1c7bf6
+Jun 4, 2014 12:02:29 AM - Metodo: AgregarSincronizacion - Clase: DAOSincronizacion - Mensaje: Error de db4o: null
