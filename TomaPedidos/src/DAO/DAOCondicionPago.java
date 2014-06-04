@@ -8,10 +8,13 @@ package DAO;
 
 import Negocio.CondicionPago;
 import Utiles.Utiles;
+
 import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.ext.Db4oException;
 import com.db4o.query.Predicate;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -31,26 +34,25 @@ public class DAOCondicionPago {
         this.db = db;
     }
 
-    public boolean AgregarCondicionPago(CondicionPago condicionPago){
+    public boolean AgregarCondicionPago(CondicionPago condicionPago) throws Exception{
         boolean flag = true;
         try{
             //Graba la condicion de pago recibida por parametro
             db.store(condicionPago);
-            //Persistir los cambios
-            db.commit();
-        }
-        catch(Exception ex){
-            //Volver al estado anterior
-            db.rollback();
+        } catch(Db4oException ex){
+        	DAOErrorLog.AgregarErrorLog("AgregarCondicionPago", "DAOCondicionPago", "Error de db4o: " + ex.getMessage());
+        	throw new Db4oException("Error de db4o al Agregar Condicion de Pago", ex);
+        } catch(Exception ex){
             flag = false;
             //Graba log del error
             DAOErrorLog.AgregarErrorLog("AgregarCondicionPago", "DAOCondicionPago", ex.getMessage());
+            throw new Exception("Error inesperado al Agregar Condicion de Pago", ex);
         }
         //Devuelve TRUE en caso de exito y FALSE en caso contrario
         return flag;
     }
     
-    public boolean AgregarCondicionPago(List<CondicionPago> lstCondicionPago){
+    public boolean AgregarCondicionPago(List<CondicionPago> lstCondicionPago) throws Exception{
         boolean flag = true;
         
         try{
@@ -63,8 +65,8 @@ public class DAOCondicionPago {
         }
         catch(Exception ex){
             flag = false;
+            throw new Exception(ex.getMessage(), ex);
         }
-        
         return flag;
     }
 
@@ -77,41 +79,40 @@ public class DAOCondicionPago {
             for(CondicionPago a : result){
                 lstCondicionPago.add(a);
             }
-       }
-       catch(Exception ex){
+       } catch(Db4oException ex){
+	       	DAOErrorLog.AgregarErrorLog("GetAll", "DAOCondicionPago", "Error de db4o: " + ex.getMessage());
+	       	throw new Db4oException("Error de db4o al Traer Condiciones de Pago", ex);
+       } catch(Exception ex){
            //Graba un log de errores en la DB
            DAOErrorLog.AgregarErrorLog("GetAll", "DAOCondicionPago", ex.getMessage());
+           throw new Db4oException("Error inesperado al Traer Condiciones de Pago", ex);
        }
        //Devuelvo la lista cargada (o vacía en caso de excepcion)
        return lstCondicionPago;
     }
     
     public CondicionPago GetByCodigo(final int codigo){
-        CondicionPago resultado = null;
         try{
             //Trae todos los objetos del tipo CondicionPago
-//            ObjectSet result = db.queryByExample(new CondicionPago(codigo));
-//            CondicionPago encontrado = (CondicionPago)result.next();
-            
-            List<CondicionPago> result = db.query(new Predicate<CondicionPago>() {
-                public boolean match(CondicionPago c) {
-                    return c.getCodigo() == codigo;
-                }
-            });
-            return (CondicionPago)result.get(0);
-        }
-        catch(Exception ex){
+            ObjectSet result = db.queryByExample(new CondicionPago(codigo));
+            CondicionPago encontrado = (CondicionPago)result.next();
+
+            return encontrado;
+        } catch(Db4oException ex){
+	       	DAOErrorLog.AgregarErrorLog("GetByCodigo", "DAOCondicionPago", "Error de db4o: " + ex.getMessage());
+	       	throw new Db4oException("Error de db4o al Traer Condicion de Pago por codigo", ex);
+        } catch(Exception ex){
            //Graba un log de errores en la DB
            DAOErrorLog.AgregarErrorLog("GetByCodigo", "DAOCondicionPago", ex.getMessage());
+           throw new Db4oException("Error inesperado al Traer Condicion de Pago por codigo", ex);
         }
-        return null;
     }
     
-    public List<CondicionPago> ImportarCondicionPago(){
+    public List<CondicionPago> ImportarCondicionPago() throws Exception{
         List<CondicionPago> lstCondicionesPago = new ArrayList();
         
         BufferedReader br = null;
-	String line = "";
+        String line = "";
         String error = "";
         
         try {
@@ -125,27 +126,28 @@ public class DAOCondicionPago {
  
 		}
  
-	} catch (FileNotFoundException e) {
-		error = "No se encontro el archivo: " + e.getStackTrace();
-	} catch (IOException e) {
-		error = "Error al leer el archivo: " + e.getStackTrace();
-	}catch(Exception e){
+		} catch (FileNotFoundException e) {
+			error = "No se encontro el archivo: " + e.getStackTrace();
+		} catch (IOException e) {
+			error = "Error al leer el archivo: " + e.getStackTrace();
+		} catch(Db4oException ex){
+			error = "Error de db4o al importar datos de Condicion de Pago: " + ex.getMessage();
+		} catch(Exception e){
             error = "Error al leer el archivo: " + e.getStackTrace();
         }
         finally {
-		if (br != null) {
-			try {
-				br.close();
-			} catch (IOException e) {
-				error = "Error al cerrar el archivo: " + e.getStackTrace().toString();
-			}
-		}
-                
-                if(error.trim() != ""){
-                    DAOErrorLog.AgregarErrorLog("ImportarCondicionPago", "DAOCondicionPago", error);
-                }
-                
-	}
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					error = "Error al cerrar el archivo: " + e.getStackTrace().toString();
+				}
+			}       
+	        if(error.trim() != ""){
+	            DAOErrorLog.AgregarErrorLog("ImportarCondicionPago", "DAOCondicionPago", error);
+	            throw new Exception(error);
+	        }
+        }
         return lstCondicionesPago;
     }
 }

@@ -25,7 +25,7 @@ public class DAOManager {
 	private ObjectContainer db;
 	
 	public DAOManager() throws Exception{
-		this.db = this.AbrirDB();
+		this.AbrirDB();
 	}
 	
 	public ObjectContainer GetObjectContainter(){
@@ -49,13 +49,13 @@ public class DAOManager {
         return flag;
     }
     
-    public ObjectContainer AbrirDB() throws Exception{
+    public void AbrirDB() throws Exception{
         try{
-            return Db4o.openFile(Utiles.DB_FILE_PATH);
+            this.db = Db4o.openFile(Utiles.DB_FILE_PATH);
         }
         catch(Db4oException ex){
         	DAOErrorLog.AgregarErrorLog("AbrirDB", "DAOManager", "Error de db4o: " + ex.getMessage());
-        	throw new Exception("Error de db4o al Abrir DB", ex);
+        	throw new Db4oException("Error de db4o al Abrir DB", ex);
         }
         catch(Exception ex){
             DAOErrorLog.AgregarErrorLog("AbrirDB", "DAOManager", "Error inesperado: " + ex.getMessage());
